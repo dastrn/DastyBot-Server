@@ -1,0 +1,33 @@
+
+add cooldown for chat window messages.
+ - look up what twitch's limits are for auto-spam bans and stuff.
+
+Can keep track and tell who won recent games
+
+bankheist gambling game
+
+points system
+multiplier for subs
+
+VIP status by donation
+- VIP get extra points
+- double vote in every poll (maybe higher?)
+- off-stream content for creative streamers
+- names on stream in an overlay?
+
+stream title and what game they are playing updatable from the GUI
+
+Polls from GUI, chart viewable on GUI and on website. (connect to strawpoll website? Look into API.)
+
+song request
+
+d20 dice rolling simulator
+(look into various dice systems. Perhaps build features for each system that's popular into a feature set that can be toggled off/on by mod.)
+ - Savage worlds
+ 12:05 BimboGamerDastrn: Yes.
+ 12:06 BimboGamerDastrn: Initiative goes in suit order from Ace to Two
+ 12:06 BimboGamerDastrn: And Spades -> Hearts -> Diamonds -> Clubs
+ 12:06 BimboGamerDastrn: Jokers are wild and can go whenever but when the Joker is dealt the deck needs to reshuffle.(after the round)
+ 
+BimBot is the name of BimboGamer's bot
+

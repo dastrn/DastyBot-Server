@@ -1,0 +1,14 @@
+[
+    {
+        "command": "!friends",
+        "commandType": "action",
+        "target": "channel",
+        "message": "Visit our friends @KayPikeFashion, @iamthem00s3, and @BimboGamer."
+    },
+    {
+        "command": "!points",
+        "commandType": "whisper",
+        "target": "user.username",
+        "message": "You have 5 DastyPoints."
+    }
+]

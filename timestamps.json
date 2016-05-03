@@ -1,0 +1,50 @@
+[
+    {
+        "time": "00:00:22",
+        "note": "Reverted readFile method."
+    },
+    {
+        "time": "00:08:58",
+        "note": "Amy is watching."
+    },
+    {
+        "time": "00:00:40",
+        "note": "Trying game for the first time."
+    },
+    {
+        "time": "01:03:24",
+        "note": "Westballz gave up his last stock to Shroomed. :("
+    },
+    {
+        "time": "00:14:21",
+        "note": "Marksdevil just followed me on twitter"
+    },
+    {
+        "time": "00:51:08",
+        "note": "Bored in this sprint planning meeting."
+    },
+    {
+        "time": "03:48:33",
+        "note": "Latest timestamp yet, I imagine. Added the !action whisper function for myself only, a joke !prettybird for chat, and reset the player collection for the game when you start a new one."
+    },
+    {
+        "time": "01:24:26",
+        "note": "Streamed Cave Story. Died like 10 times. :("
+    },
+    {
+        "time": "00:05:34",
+        "note": "Just beat the final boss."
+    },
+    {
+        "time": "02:52:29",
+        "note": "Just added !chirp and !chirpoff commands. ;; is the delimiter."
+    },
+    {
+        "time": "00:00:41",
+        "note": "Chirp feature fixed. Timer now works."
+    },
+    {
+        "time": "10:38:02",
+        "note": "Left the bot running for a very long time today to chirp for Kay's stream."
+    }
+]
