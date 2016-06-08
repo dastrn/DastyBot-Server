@@ -11,10 +11,18 @@ var options = {
 	},
 	identity: {
 		username: "DastyBot",
-		password: ""
+		password: "oauth:"
 	},
-	channels: ["BimboGamer"]
+	channels: ["Dastrn"]
 };
+//function setOptions() {
+//	jsonfile.readFile('options.json', function(err, obj) {
+//		options = obj;
+//		});
+//};
+//setOptions();
+console.dir(options);
+
 
 var client = new tmi.client(options);
 client.connect();
@@ -39,7 +47,6 @@ var timestamps = [];
 client.on('connected', function(){
 	jsonfile.readFile(timestampFile, function(err, obj) {
 		timestamps = obj;
-		console.dir(timestamps);
 	});
 });
 client.on('connected', function(){
@@ -71,10 +78,7 @@ client.on('chat', function(channel, user, message, self) {
 //		client.action(channel, getTimeStamp());
 //	}
 //	else 
-	if(message === "!marvel") {
-		client.action(channel, "Kay is painting for MARVEL today at 1pm Eastern, 10am Pacific! http://bit.ly/1pBZcSp");
-	}
-	else if(message === "!prettyboy" && user.username != "dastrn") {
+	if (message === "!prettyboy" && user.username != "dastrn") {
 		client.action(channel, "SQWAA! Dastrn is the REAL pretty boy! " + user.username + " is an imposter! SQWAA!");
 	}
 	else if(message === gameName && gameIsActive === true) {
@@ -96,9 +100,9 @@ client.on('whisper', function (user, message){
 			console.error(err);
 		});
 	}
-//	else if(message === "!commands") {
-//		client.whisper(user.username, "!twitter, !instagram, !marvel, !commands, !uptime");
-//	}
+	else if(message === "!commands") {
+		client.whisper(user.username, "!twitter, !instagram, !commands, !uptime");
+	}
 	else if(message.substring(0, 10) === "!startgame" && user.username === "dastrn" && gameIsActive === false) {
 		var args = message.split(",");
 		var gameNm = args[1];
