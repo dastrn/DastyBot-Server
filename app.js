@@ -86,7 +86,7 @@ var chatParseService = function(channel, user, message, self){
 		client.action(channel, getTimeStamp());
 	}
 	else if(message === "!prettyboy" && user.username != "dastrn") {
-		client.action(channel, "SQWAA! Dastrn is the REAL pretty boy! " + user.username + " is an imposter! SQWAA!");
+		client.action(channel, "SQWAA! Dastrn is the REAL pretty boy!! " + user.username + " is an imposter! SQWAA!");
 	}
 	else if(message === gameName && gameIsActive === true) {
 		gamePlayers.push(user.username);
