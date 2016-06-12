@@ -2,9 +2,13 @@
 add cooldown for chat window messages.
  - look up what twitch's limits are for auto-spam bans and stuff.
 
-Can keep track and tell who won recent games
+Time limit for games.
+Can keep track and tell who won recent giveaway games
 
 bankheist gambling game
+ - make the win rate changeable per stream
+ - stimulus packages to give out free points
+
 
 points system
 multiplier for subs
@@ -31,3 +35,10 @@ d20 dice rolling simulator
  
 BimBot is the name of BimboGamer's bot
 
+
+Achievement system
+ - hours as a viewer?
+ - subscribed (1 mo, 2 mo, 6 mo, 12 mo)
+ - followed
+ - chat messages (need to avoid people spamming for this...maybe limit to only a few messages per minute?)
+ - Donations

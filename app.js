@@ -11,18 +11,18 @@ var options = {
 	},
 	identity: {
 		username: "DastyBot",
-		password: "oauth:"
+		password: 
 	},
 	channels: ["Dastrn"]
 };
+
 //function setOptions() {
 //	jsonfile.readFile('options.json', function(err, obj) {
 //		options = obj;
 //		});
 //};
 //setOptions();
-console.dir(options);
-
+//console.dir(options);
 
 var client = new tmi.client(options);
 client.connect();
@@ -47,6 +47,7 @@ var timestamps = [];
 client.on('connected', function(){
 	jsonfile.readFile(timestampFile, function(err, obj) {
 		timestamps = obj;
+		console.dir(timestamps);
 	});
 });
 client.on('connected', function(){
@@ -55,30 +56,36 @@ client.on('connected', function(){
 		console.dir(customCommands);
 	});
 });
-//client.on('connected', function(){
-//	client.action(options.channels[0], "Hello, I'm a bot and I'm here to troll you.");
-//});
+client.on('connected', function(){
+	client.action(options.channels[0], "Hello, I'm a bot and I'm here to troll you.");
+});
 client.on('connected', function(address, port) {
 	console.log("address: " + address + " port: " + port);
 	setInterval(function() {uptime++;},1000);	
 });
 
 // All !commands.
+// TODO: Move these to separate file.
 client.on('chat', function(channel, user, message, self) {
-//	if(message === "!twitter") {
-//		client.action(channel, "twitter.com/patrickianrice");
-//	}
-//	else if(message === "!instagram") {
-//		client.action(channel, "instagram.com/dastrn");
-//	}
-//	else if(message === "!commands") {
-//		client.action(channel, "Whisper me '!commands' to see the full list of commands.");
-//	}
-//	else if(message === "!uptime") {
-//		client.action(channel, getTimeStamp());
-//	}
-//	else 
-	if (message === "!prettyboy" && user.username != "dastrn") {
+	if (message.substring(0, 1) === "!") {
+		chatParseService(channel, user, message, self);
+	}
+});
+
+var chatParseService = function(channel, user, message, self){
+	if(message === "!twitter") {
+		client.action(channel, "twitter.com/patrickianrice");
+	}
+	else if(message === "!instagram") {
+		client.action(channel, "instagram.com/dastrn");
+	}
+	else if(message === "!commands") {
+		client.action(channel, "Whisper me '!commands' to see the full list of commands.");
+	}
+	else if(message === "!uptime") {
+		client.action(channel, getTimeStamp());
+	}
+	else if(message === "!prettyboy" && user.username != "dastrn") {
 		client.action(channel, "SQWAA! Dastrn is the REAL pretty boy! " + user.username + " is an imposter! SQWAA!");
 	}
 	else if(message === gameName && gameIsActive === true) {
@@ -86,7 +93,7 @@ client.on('chat', function(channel, user, message, self) {
 		console.dir(gamePlayers);
 		client.action(channel, user.username + " has been entered into the game: " + gameName);
 	};
-});
+};
 
 // Whisper Commands
 client.on('whisper', function (user, message){
@@ -101,13 +108,11 @@ client.on('whisper', function (user, message){
 		});
 	}
 	else if(message === "!commands") {
-		client.whisper(user.username, "!twitter, !instagram, !commands, !uptime");
+		client.whisper(user.username, "!twitter, !instagram, !prettyboy, !commands, !uptime");
 	}
 	else if(message.substring(0, 10) === "!startgame" && user.username === "dastrn" && gameIsActive === false) {
-		var args = message.split(",");
-		var gameNm = args[1];
-		var gameTmLimit = args[2];
-		GameStart(gameNm, gameTmLimit);
+		var args = message.split(" ");
+		GameStart(args[1]);
 	}
 	else if(message.substring(0, 8) === "!endgame" && user.username === "dastrn") {
 		EndGame();
@@ -116,7 +121,7 @@ client.on('whisper', function (user, message){
 		var args = message.split(',');
 		client.action(options.channels[0], args[1]);
 	}
-	else if(message.substring(0, 7) === "!chirp " && (user.username === "dastrn" || user.username === "kaypikefashion" || user.username === "iamthem00s3")) {
+		else if(message.substring(0, 7) === "!chirp " && (user.username === "dastrn" || user.username === "kaypikefashion" || user.username === "iamthem00s3")) {
 		Chirp(message);
 		console.log(chirpIsActive);
 	}
@@ -138,7 +143,6 @@ var initialGamePlayers = ["KayPikeFashion", "iamthem00s3", "BimboGamer"];
 var gamePlayers = [];
 var gameName = "";
 var gameIsActive = false; // Initializing this.
-var gameTimeLimit = 0;
 var chirpIsActive = false;
 var chirpMessage = "";
 var chirpInterval = 0;
@@ -194,7 +198,6 @@ var AddCommand = function(message) {
 var RandomInt = function(high) {
 	return Math.floor(Math.random() * high + 1);
 };
-
 var Chirp = function(message){	
 	var args = message.split(";;");
 	chirpMessage = args[1];
