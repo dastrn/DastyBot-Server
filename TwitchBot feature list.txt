@@ -1,22 +1,19 @@
+Use viewer status (new, non-follower, sub, mod, etc. to restrict/give privs in chat, access to commands, games, etc.)
+
+fix uptime. set uptime date and calc diff.
 
 add cooldown for chat window messages.
  - look up what twitch's limits are for auto-spam bans and stuff.
 
-Time limit for games.
 Can keep track and tell who won recent giveaway games
 
 bankheist gambling game
  - make the win rate changeable per stream
- - stimulus packages to give out free points
-
-
-points system
-multiplier for subs
 
 VIP status by donation
 - VIP get extra points
 - double vote in every poll (maybe higher?)
-- off-stream content for creative streamers
+- off-stream content for creative streamersx
 - names on stream in an overlay?
 
 stream title and what game they are playing updatable from the GUI
@@ -25,16 +22,10 @@ Polls from GUI, chart viewable on GUI and on website. (connect to strawpoll webs
 
 song request
 
-d20 dice rolling simulator
-(look into various dice systems. Perhaps build features for each system that's popular into a feature set that can be toggled off/on by mod.)
  - Savage worlds
- 12:05 BimboGamerDastrn: Yes.
  12:06 BimboGamerDastrn: Initiative goes in suit order from Ace to Two
  12:06 BimboGamerDastrn: And Spades -> Hearts -> Diamonds -> Clubs
  12:06 BimboGamerDastrn: Jokers are wild and can go whenever but when the Joker is dealt the deck needs to reshuffle.(after the round)
- 
-BimBot is the name of BimboGamer's bot
-
 
 Achievement system
  - hours as a viewer?
@@ -42,3 +33,30 @@ Achievement system
  - followed
  - chat messages (need to avoid people spamming for this...maybe limit to only a few messages per minute?)
  - Donations
+ 
+update command list automatically
+
+gets stuck on bad username when giving points
+
+when Mark put !bankheist £9998 in chat, the json parser lost a single quote? seems weird.
+a : in the parameter breaks on jsonparsing in C#
+!bankheist •9999 same as above
+
+allow a negative modifier on a roll.
+
+overflowing 32 bit integer breaks client on !give command
+(switched to 64 bit. test this again.)
+comma in the amount of points breaks the !give command
+(retest)
+
+Consider if we can add a website where players can edit stats and weapons and stuff, 
+--so then the player types !rollattack and the bot can just sort it out
+
+Maybe roll for saves and whatnot as well, then. !rollconsave to roll a constitution save, for example.
+
+Definitely adding hooks to all the major social medias so you can notify from the bot that you're going live.
+
+!quote "Oh look a penguin!"
+!quote 3
+
+(timestamp will work similarly)
