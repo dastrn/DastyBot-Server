@@ -12,7 +12,7 @@ var options = {
 	},
 	identity: {
 		username: "DastyBot",
-		password: "oauth:"
+		password: "oauth:duwb065cz4rbdofos6nfahm8v0tnwg"
 	},
 	channels: ["dastrn"]
 };
@@ -38,11 +38,6 @@ client.connect();
 
 var uptime = 0;
 
-//process.on('SIGINT', function() {
-//  publisher.close();
-//  subscriber.close();
-//});
-
 client.on('connected', function(){
 	client.action(options.channels[0], "DastyBot is alive!");
 });
@@ -57,25 +52,25 @@ client.on('chat', function(channel, user, message, self) {
 });
 
 var chatParseService = function(channel, user, message, pubChannel, self){
+	
 	var messageString = jsonify(message, user.username, channel).toString();
-	//console.log(messageString);
 	publisher.send(pubChannel, zmq.ZMQ_SNDMORE);
 	publisher.send(messageString);
 };
 
 var jsonify = function(message, username, channel){
-	var theMessage = message.replace(/'/g, "");
-	var prejson = [{
+	//var theMessage = message.replace(/'/g, "").replace(/:/g, "").replace(/"/g, "").replace(/,/g, "&comma;");
+	var theMessage = encodeURI(message);
+	var prejson = {
 		'CommandText': theMessage,
 		'Source': username,
-		'SourceLocation': channel		
-	}];
+		'SourceLocation': channel.replace("#", "")		
+	};
 	var json = JSON.stringify(prejson);
 	return json;	
 };
 
 client.on("join", function (channel, username, self) {
-   //client.action(options.channels[0], " welcomes " + username + " to the stream.");
 	client.action(options.channels[0], " welcomes new viewers to the stream.");
 });
 

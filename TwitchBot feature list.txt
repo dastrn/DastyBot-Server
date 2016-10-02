@@ -60,3 +60,13 @@ Definitely adding hooks to all the major social medias so you can notify from th
 !quote 3
 
 (timestamp will work similarly)
+
+!mods
+
+!rules
+
+Pause Game and Stop games from UI.
+
+allow for the @ sign in usernames.
+
+Point store tab to keep track of orders.
