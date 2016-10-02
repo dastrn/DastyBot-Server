@@ -12,7 +12,7 @@ var options = {
 	},
 	identity: {
 		username: "DastyBot",
-		password: "oauth:duwb065cz4rbdofos6nfahm8v0tnwg"
+		password: "oauth:"
 	},
 	channels: ["dastrn"]
 };
